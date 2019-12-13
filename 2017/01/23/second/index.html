@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Unity3D学习之路—MonoBehaviour基础 | Gnay</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="Life is so wonderful.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Unity3D学习之路—MonoBehaviour基础 | Gnay">
+    <meta name="twitter:description" content="Life is so wonderful.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Unity3D学习之路—MonoBehaviour基础 | Gnay">
+    <meta property="og:description" content="Life is so wonderful.">
+
+    
+    <meta name="author" content="Gnay">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar.jpg">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+
+    <link rel="canonical" href="http://wanxing.github.io/2017/01/23/second/"/>
+
+    
+      
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/1.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 Gnay 的主页"><img src="/images/avatar.jpg" width="80" alt="Gnay logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Gnay">Gnay</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">the essence of life is the pursuit of happiness</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Life is so wonderful.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+              <li class="navigation__item"><a href="/project/project.html">项目</a></li>
+            
+              <li class="navigation__item"><a href="/happy/happy.html">收纳盒</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-01-23T03:46:46.000Z" class="post-list__meta--date date">2017-01-23</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Unity3D/">Unity3D</a>
+ </span>
+      <span class="page-pv">
+      &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Unity3D学习之路—MonoBehaviour基础</h1>
+  </header>
+
+  <section class="post">
+    <p>　　<br>　　关于MonoBehaviour，这里所有的介绍都是基于C#。<br>　　MonoBehaviour是一个类，继承于Behaviour，新建的脚本继承MonoBehaviour。脚本可以用于挂载在物体上，举个例子，比如说让物体移动一段距离等等，让物体按你想要的方式运行；MonoBehaviour也可以用于做一些扩展，后续文章会有介绍。那么让我们领略一下MonoBehaviour的威力吧！<br>　　鼠标移至Project窗口下，点击鼠标右键Creat-&gt;C# Script,命名为MyMonoBehaviour，打开文件，我们会得到如下代码：<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> UnityEngine;</div><div class="line"><span class="keyword">using</span> System.Collections;</div><div class="line">　　</div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyMonoBehaviour</span> : <span class="title">MonoBehaviour</span> </div><div class="line">&#123;</div><div class="line">　　</div><div class="line">	<span class="comment">// Use this for initialization</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Start</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">			</div><div class="line">	<span class="comment">// Update is called once per frame</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Update</span> (<span class="params"></span>) </span>&#123;</div><div class="line">			</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>　　上面两个using表示引用集，可以直接使用里面的函数，一般情况下，只引用那两个可以满足需求，如果满足不了可以再添加。class后面是类的名字，冒号表示继承MonoBehaviour。核心在Start函数和Update函数，Start函数在Update函数调用前仅调用一次，Update函数在MonoBehaviour启用时，每一帧都会调用。那么试试让物体移动吧，在Hierarchy面板下新建一个Cube，如下图：<br><img src="/images/cube.jpg" alt=""><br>修改成让物体移动的代码：<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> UnityEngine;</div><div class="line"><span class="keyword">using</span> System.Collections;</div><div class="line">　　</div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyMonoBehaviour</span> : <span class="title">MonoBehaviour</span></div><div class="line">&#123;</div><div class="line">　　</div><div class="line">	<span class="comment">// Use this for initialization</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Start</span> (<span class="params"></span>) </span>&#123;</div><div class="line">　　</div><div class="line">	&#125;</div><div class="line">			</div><div class="line">	<span class="comment">// Update is called once per frame</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Update</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		transform.Translate(Vector3.forward * Time.deltaTime);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>　　写完后可以在Unity中直接拖拽添加到选中物体的属性面板（如下图），或者选中物体后在菜单栏点击Component-&gt;Script-&gt;MyMonoBehaviour,两种添加脚本的方式都可以。<br><img src="/images/mono.jpg" alt=""><br>　　<br>　　添加完成后，运行你的程序，物体就可以移动啦！</p>
+
+  </section>
+
+</article>
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">最近的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/01/24/third/" title="Unity3D学习之路—MonoBehaviour生命周期">Unity3D学习之路—MonoBehaviour生命周期</a></h2>
+                <p class="excerpt">
+                
+                　　　　在MonoBehaviour基础一文中提到了Start函数会在Update函数调用前仅调用一次,Update函数在MonoBehaviour启用时，每一帧都会调用，除此之外MonoBehaviour还会有更多的函数会在不同的时候调用，MonoBehaviour生命周期如下图所示：　　Rese
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-01-24T03:17:46.000Z" class="post-list__meta--date date">2017-01-24</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Unity3D/">Unity3D</a>
+</span><a class="btn-border-small" href="/2017/01/24/third/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">更早的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/01/23/first/" title="Unity3D学习之路—基本界面简介">Unity3D学习之路—基本界面简介</a></h2>
+                <p class="excerpt">
+                
+                　　刚开始新建一个Unity项目时界面和上图不一样，可以按习惯拖动各个窗口，如上图所示。上图Unity版本为3.5.6，后续版本都大同小异，下面介绍一下每个部分的功能。　　Scene窗口：用于观察存放在世界的物体（GameObject）。开发者视角，开发者可以随意调整视角到想要观察的位置，鼠标+键盘
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-01-23T02:46:46.000Z" class="post-list__meta--date date">2017-01-23</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Unity3D/">Unity3D</a>
+</span><a class="btn-border-small" href="/2017/01/23/first/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+            
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2017 - 本站由<a href = "https://wanxing.github.io/" target = "_blank">@Gnay</a>创建
+    </span>
+</footer>
+        </div>
+    </div>
+
+    
+
+     
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1a53cfcf89d1293aeb14a737285b7d87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    
+    </script>
+    
+</body>
+</html>

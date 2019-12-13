@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Unity3D学习之路—MonoBehaviour生命周期 | Gnay</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="Life is so wonderful.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Unity3D学习之路—MonoBehaviour生命周期 | Gnay">
+    <meta name="twitter:description" content="Life is so wonderful.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Unity3D学习之路—MonoBehaviour生命周期 | Gnay">
+    <meta property="og:description" content="Life is so wonderful.">
+
+    
+    <meta name="author" content="Gnay">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar.jpg">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+
+    <link rel="canonical" href="http://wanxing.github.io/2017/01/24/third/"/>
+
+    
+      
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/1.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 Gnay 的主页"><img src="/images/avatar.jpg" width="80" alt="Gnay logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Gnay">Gnay</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">the essence of life is the pursuit of happiness</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">Life is so wonderful.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+              <li class="navigation__item"><a href="/project/project.html">项目</a></li>
+            
+              <li class="navigation__item"><a href="/happy/happy.html">收纳盒</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-01-24T03:17:46.000Z" class="post-list__meta--date date">2017-01-24</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Unity3D/">Unity3D</a>
+ </span>
+      <span class="page-pv">
+      &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Unity3D学习之路—MonoBehaviour生命周期</h1>
+  </header>
+
+  <section class="post">
+    <p>　　<br>　　在<a href="https://wanxing.github.io/2017/01/23/second/">MonoBehaviour基础</a>一文中提到了Start函数会在Update函数调用前仅调用一次,Update函数在MonoBehaviour启用时，每一帧都会调用，除此之外MonoBehaviour还会有更多的函数会在不同的时候调用，MonoBehaviour生命周期如下图所示：<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1485238534338&amp;di=2c578c4d278e5d70e2eadb11a7cb9557&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.51wendang.com%2Fpic%2Fc1f3000fc74ffc3a1a9a8fa6%2F1-1084-png_6_0_0_135_259_622_844_892.979_1262.879-800-0-0-800.jpg" alt="MonoBehaviour生命周期"><br>　　<br>Reset：在用户点击检视面板的Reset按钮或者首次添加该组件时被调用。此函数只在编辑模式（游戏非运行状态即为编辑模式）下被调用。Reset最常用于在检视面板中给定一个最常用的默认值。<br>　　<br>Awake：当一个脚本实例被载入时Awake被调用。Awake用于在游戏开始之前初始化变量或游戏状态。在脚本整个生命周期内它仅被调用一次。每个游戏物体上的Awke以随机的顺序被调用。因此，你应该用Awake来设置脚本间的引用，并用Start来传递信息Awake总是在Start之前被调用。它不能用来执行协同程序。<br>　　<br>OnEnable：当对象变为可用或激活状态时此函数被调用。OnEnable不能用于协同程序。<br>　　<br>Start：Start仅在Update函数第一次被调用前调用。它和Awake的不同是Start只在脚本实例被启用时调用。所有脚本的Awake总是在Start之前执行。<br>　　<br>FixedUpdate：固定帧，即固定多少时间运行一次，和Update的时间不一样，这里通常用于物理相关计算。<br>　　<br>yield WaitForFixedUpdate：协程相关，后续的协程文章会详细介绍。<br>　　<br>Update：当MonoBehaviour启用时，其Update在每一帧被调用。<br>　　<br>yield null and yield WaitForSeconds：协程相关，后续协程文章会详细介绍。<br>　　<br>LateUpdate：在所有Update函数调用后被调用。通常用于做跟随等功能。<br>　　<br>OnWillRenderObject：在渲染物体之前被调用。<br>　　<br>OnGUI：渲染和处理GUI事件时调用。代价昂贵，通常不用。<br>　　<br>yield WaitForEndOfFrame：协程相关，后续的协程文章会详细介绍。<br>　　<br>OnDisable：当对象变为不可用或非激活状态时此函数被调用。不能用于协同程序。<br>　　<br>OnDestroy：当MonoBehaviour将被销毁时，这个函数被调用。不能用于协同程序。<br> 　　<br>以上是MonoBehaviour生命周期里比较常用的函数，更多关于MonoBehaviour的介绍，可以查阅<a href="http://www.ceeger.com/Script/MonoBehaviour/MonoBehaviour.html" target="_blank" rel="external">这里</a>。</p>
+
+  </section>
+
+</article>
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">更早的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/01/23/second/" title="Unity3D学习之路—MonoBehaviour基础">Unity3D学习之路—MonoBehaviour基础</a></h2>
+                <p class="excerpt">
+                
+                　　　　关于MonoBehaviour，这里所有的介绍都是基于C#。　　MonoBehaviour是一个类，继承于Behaviour，新建的脚本继承MonoBehaviour。脚本可以用于挂载在物体上，举个例子，比如说让物体移动一段距离等等，让物体按你想要的方式运行；MonoBehaviour也可以
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-01-23T03:46:46.000Z" class="post-list__meta--date date">2017-01-23</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Unity3D/">Unity3D</a>
+</span><a class="btn-border-small" href="/2017/01/23/second/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+            
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2017 - 本站由<a href = "https://wanxing.github.io/" target = "_blank">@Gnay</a>创建
+    </span>
+</footer>
+        </div>
+    </div>
+
+    
+
+     
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1a53cfcf89d1293aeb14a737285b7d87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    
+    </script>
+    
+</body>
+</html>
